@@ -1,0 +1,88 @@
+<div class="slideshow">
+  <div class="slideshow-container">
+    <div class="slide">
+      <img src="image1.jpg" alt="Image 1">
+    </div>
+    <div class="slide">
+      <img src="image2.jpg" alt="Image 2">
+    </div>
+    <div class="slide">
+      <img src="image3.jpg" alt="Image 3">
+    </div>
+  </div>
+  <a class="prev">&#10094;</a>
+  <a class="next">&#10095;</a>
+</div>
+
+.slideshow {
+  position: relative;
+  margin: auto;
+  width: 80%;
+}
+
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.active {
+  display: block;
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slide");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+}
